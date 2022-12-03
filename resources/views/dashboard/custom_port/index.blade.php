@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">المستوردين</h4>
+                                    <h4 class="mb-sm-0">المنافذ الجمروكيه</h4>
                                 </div>
                             </div>
                         </div>          
@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <a href="{{route('importer.create')}}" class="btn btn-info">اضافه مستورد
+                                    <a href="{{route('customport.create')}}" class="btn btn-info">اضافه منفذ جمروكي
                                     </a>   
                                 </div>
                             </div>
@@ -27,20 +27,15 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title pb-2">عرض المستوردين</h4>
+                    <h4 class="card-title pb-2">عرض المنافذ الجمركيه</h4>
                     
 
-                    <table id="ImporterTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="CustomPortTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>الاسم (ar)</th>
                             <th>الاسم (en)</th>
-                            <th>رقم السجل التجاري</th>
-                            <th>الرقم الضريبي</th>
-                            <th>رقم الهاتف الاول</th>
-                            <th>رقم الهاتف الثاني</th>
-                            <th>الايميل</th>
-                            <th>انشاء بواسطه</th>
+                            <th>ملاحظات</th>
                             <th>العمليات</th>
                         </thead>
 
@@ -87,10 +82,10 @@
 
 <script>
 
-    let ImporterTable = null
-function setImporterDatatable() {
-    var url = "{{ route('importer.get_data') }}";
-    ImporterTable = $("#ImporterTable").DataTable({
+    let CustomPortTable = null
+function setCustomPortDatatable() {
+    var url = "{{ route('customport.get_data') }}";
+    CustomPortTable = $("#CustomPortTable").DataTable({
         processing: true,
         serverSide: true,
         dom: 'Blfrtip',
@@ -135,22 +130,7 @@ function setImporterDatatable() {
                 data: 'name_ar'
             },
             {
-                data: 'co_num'
-            },
-            {
-                data: 'tax_num'
-            },
-            {
-                data: 'phone_num1'
-            },
-            {
-                data: 'phone_num2'
-            },
-            {
-                data: 'email'
-            },
-            {
-                data: 'user.name'
+                data: 'notes'
             },
             {
                 data: 'action'
@@ -159,7 +139,7 @@ function setImporterDatatable() {
     });
 }
 $(function() {
-    setImporterDatatable();
+    setCustomPortDatatable();
 });
 </script>
 

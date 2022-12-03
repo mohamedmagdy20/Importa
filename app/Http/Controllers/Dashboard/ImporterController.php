@@ -19,6 +19,17 @@ class ImporterController extends Controller
         return view('dashboard.importers.create');
     }
 
+    public function getData()
+    {
+
+        $importer = Importer::query()->with('user');
+        $data = DataTables()->eloquent($importer)
+        ->addColumn('action', function ($importer) {
+            return view('dashboard.importers.action', ['type' => 'action', 'importer' => $importer]);
+        })
+        ->toJson();
+        return $data;
+    }
     public function store(Request $request)
     {
         $request->validate([

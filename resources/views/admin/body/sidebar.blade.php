@@ -33,7 +33,7 @@
     @endif
 
 
-    @if (auth()->user()->hasRole('super_admin'))
+    @if (auth()->user()->hasPermission('read_importers'))
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
             <i class="ri-mail-send-line"></i>
@@ -42,6 +42,19 @@
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{route('importer.index')}}">عرض المستوردين</a></li>
             <li><a href="{{route('importer.create')}}">اضافه المستوردين</a></li>
+        </ul>
+    </li>        
+    @endif
+
+    @if (auth()->user()->hasPermission('read_customports'))
+    <li>
+        <a href="javascript: void(0);" class="has-arrow waves-effect">
+            <i class="ri-mail-send-line"></i>
+            <span>المنافذ الجمروكيه</span>
+        </a>
+        <ul class="sub-menu" aria-expanded="false">
+            <li><a href="{{route('customport.index')}}">عرض المنافذ الجمروكيه</a></li>
+            <li><a href="{{route('customport.create')}}">اضافه المنافذ الجمروكيه</a></li>
         </ul>
     </li>        
     @endif

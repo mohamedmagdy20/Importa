@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CustomPort extends Model
 {
     use HasFactory;
+    protected $table = 'custom_ports';
+    protected $fillable =[
+        'name_en',
+        'name_ar',
+        'notes'
+    ];
 }

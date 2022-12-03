@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\ImporterController;
+use App\Http\Controllers\Dashboard\CustomPortController;
 
 use App\Http\Controllers\Dashboard\RoleController;
 /*
@@ -49,7 +50,20 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('edit/{id}',[ImporterController::class,'edit'])->middleware('permission:edit_importers')->name('importer.edit');
         Route::post('update/{id}',[ImporterController::class,'update'])->middleware('permission:edit_importers')->name('importer.update');
         Route::get('delete/{id}',[ImporterController::class,'delete'])->middleware('permission:delete_importers')->name('importer.delete'); 
+        Route::get('get_data',[ImporterController::class,'getData'])->middleware('permission:read_importers')->name('importer.get_data'); 
     });
+
+    Route::group(['prefix'=>'custom_port'],function(){
+        Route::get('index',[CustomPortController::class,'index'])->middleware('permission:read_customports')->name('customport.index');
+        Route::get('create',[CustomPortController::class,'create'])->middleware('permission:add_customports')->name('customport.create');
+        Route::post('store',[CustomPortController::class,'store'])->middleware('permission:add_customports')->name('customport.store');
+        Route::get('edit/{id}',[CustomPortController::class,'edit'])->middleware('permission:edit_customports')->name('customport.edit');
+        Route::post('update/{id}',[CustomPortController::class,'update'])->middleware('permission:edit_customports')->name('customport.update');
+        Route::get('delete/{id}',[CustomPortController::class,'delete'])->middleware('permission:delete_customports')->name('customport.delete'); 
+        Route::get('get_data',[CustomPortController::class,'getData'])->middleware('permission:read_customports')->name('customport.get_data'); 
+    });
+
+
 
 
 });

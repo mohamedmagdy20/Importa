@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Importer;
+
 
 class HomeController extends Controller
 {
@@ -17,7 +19,8 @@ class HomeController extends Controller
     public function index()
     {
         $user_count = User::count();
-        return view('index',compact('user_count'));
+        $importer_count = Importer::count();
+        return view('index',compact('user_count','importer_count'));
     }
 
 }
