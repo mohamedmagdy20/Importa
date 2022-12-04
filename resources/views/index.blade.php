@@ -13,7 +13,7 @@
 
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
-            <li class="breadcrumb-item"><a href="javascript: void(0);">لوحه التحكم</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">@lang('lang.dashboard')</a></li>
             <li class="breadcrumb-item active">الصفحه الاساسيه</li>
         </ol>
     </div>

@@ -9,12 +9,12 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">Menu</li>
+                <li class="menu-title">@lang('lang.menu')</li>
 
                 <li>
                     <a href="{{route('dashboard')}}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
-                        <span>لوحه التحكم</span>
+                        <span>@lang('lang.dashboard')</span>
                     </a>
                 </li>
 
@@ -23,11 +23,11 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
             <i class="ri-mail-send-line"></i>
-            <span>الموظفين</span>
+            <span>@lang('lang.employees')</span>
         </a>
         <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{route('user.index')}}">عرض الموظفين</a></li>
-            <li><a href="{{route('role.index')}}">عرض الوظاءف</a></li>
+            <li><a href="{{route('user.index')}}">@lang('lang.show') @lang('lang.employees')</a></li>
+            <li><a href="{{route('role.index')}}">@lang('lang.show') @lang('lang.roles')</a></li>
         </ul>
     </li>        
     @endif
@@ -37,11 +37,11 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
             <i class="ri-mail-send-line"></i>
-            <span>المستوردين</span>
+            <span>@lang('lang.importer')</span>
         </a>
         <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{route('importer.index')}}">عرض المستوردين</a></li>
-            <li><a href="{{route('importer.create')}}">اضافه المستوردين</a></li>
+            <li><a href="{{route('importer.index')}}">@lang('lang.show') @lang('lang.importer')</a></li>
+            <li><a href="{{route('importer.create')}}">@lang('lang.add') @lang('lang.importer')</a></li>
         </ul>
     </li>        
     @endif
@@ -50,11 +50,11 @@
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
             <i class="ri-mail-send-line"></i>
-            <span>المنافذ الجمروكيه</span>
+            <span>@lang('lang.custom_port')</span>
         </a>
         <ul class="sub-menu" aria-expanded="false">
-            <li><a href="{{route('customport.index')}}">عرض المنافذ الجمروكيه</a></li>
-            <li><a href="{{route('customport.create')}}">اضافه المنافذ الجمروكيه</a></li>
+            <li><a href="{{route('customport.index')}}">@lang('lang.show') @lang('lang.custom_port')</a></li>
+            <li><a href="{{route('customport.create')}}">@lang('lang.add') @lang('lang.custom_port')</a></li>
         </ul>
     </li>        
     @endif
@@ -66,12 +66,11 @@
 <li>
 <a href="javascript: void(0);" class="has-arrow waves-effect">
     <i class="ri-mail-send-line"></i>
-    <span>اسلام المعاملة</span>
+    <span>@lang('lang.transactions')</span>
 </a>
 <ul class="sub-menu" aria-expanded="false">
-    <li><a href="#">About Page</a></li>
-  <li><a href="#">About Multi Image</a></li>
-  <li><a href="#">All Multi Image</a></li>
+    <li><a href="{{route('transaction.index')}}">@lang('show') @lang('lang.transactions')</a></li>
+    <li><a href="{{route('transaction.create')}}">@lang('lang.add') @lang('lang.transactions')</a></li>
 </ul>
 </li>
 

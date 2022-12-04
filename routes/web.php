@@ -5,8 +5,10 @@ use App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\ImporterController;
 use App\Http\Controllers\Dashboard\CustomPortController;
-
 use App\Http\Controllers\Dashboard\RoleController;
+use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\Dashboard\TransactionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,9 @@ Route::get('/', function () {
 Route::get('/dashboard',[HomeController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function(){
+    Route::get('lang/{locale}',[LocalizationController::class,'setLang'])->name('set.lang');
+
+
     Route::group(['prefix'=>'users'],function(){
         Route::get('index',[UserController::class,'index'])->middleware('permission:read_users')->name('user.index');
         Route::get('create',[UserController::class,'create'])->middleware('permission:add_users')->name('user.create');
@@ -64,6 +69,17 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
     });
 
 
+    Route::group(['prefix'=>'transactions'],function(){
+        Route::get('index',[TransactionController::class,'index'])->middleware('permission:read_transactions')->name('transaction.index');
+        Route::get('create',[TransactionController::class,'create'])->middleware('permission:add_transactions')->name('transaction.create');
+        Route::post('store',[TransactionController::class,'store'])->middleware('permission:add_transactions')->name('transaction.store');
+        Route::get('edit/{id}',[TransactionController::class,'edit'])->middleware('permission:edit_transactions')->name('transaction.edit');
+        Route::post('update/{id}',[TransactionController::class,'update'])->middleware('permission:edit_transactions')->name('transaction.update');
+        Route::get('delete/{id}',[TransactionController::class,'delete'])->middleware('permission:delete_transactions')->name('transaction.delete'); 
+        Route::get('get_data',[TransactionController::class,'getData'])->middleware('permission:read_transactions')->name('transaction.get_data'); 
+        Route::get('show/{id}',[TransactionController::class,'show'])->middleware('permission:read_transactions')->name('transaction.show'); 
+    
+    });
 
 
 });

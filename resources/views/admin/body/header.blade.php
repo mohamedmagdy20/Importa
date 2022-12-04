@@ -32,6 +32,26 @@
 <div class="d-flex">
 
 
+    <div class="dropdown d-inline-block lang-dropdown">
+        <button type="button" class="btn header-item waves-effect" id="page-header-lang-dropdown"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{-- <img class="rounded-circle header-profile-user" src="{{ url('upload/no_image.jpg') }}"
+                alt="Header Avatar"> --}}
+                {{-- <a class="text-danger fs-4 mt-2">Language</a> --}}
+            <span class="d-none d-xl-inline-block ms-1 text-danger">Langauage</span>
+            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end">
+            <!-- item-->
+            <a class="dropdown-item" href="{{route('set.lang','ar')}}"> Arabic</a>
+            <a class="dropdown-item" href="{{route('set.lang','en')}}">English</a>
+            <div class="dropdown-divider"></div>
+
+           
+        </div>
+    </div>
+
+
     <div class="dropdown d-inline-block user-dropdown">
         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
