@@ -30,6 +30,10 @@ return [
     'driver'=>'Drivers',
     'custom_procedures'=>'Custom Procedures',
     'procedure_num'=>'Number of statement',
-    'notes'=>'Notes'
+    'notes'=>'Notes',
+    'phone'=>' Phone',
+    'name'=>'Name',
+    'shipment_agent'=>'Shipment Agent'
+    
 ];
 ?>

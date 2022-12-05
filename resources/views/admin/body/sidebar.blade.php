@@ -28,6 +28,9 @@
         <ul class="sub-menu" aria-expanded="false">
             <li><a href="{{route('user.index')}}">@lang('lang.show') @lang('lang.employees')</a></li>
             <li><a href="{{route('role.index')}}">@lang('lang.show') @lang('lang.roles')</a></li>
+            <li><a href="{{route('driver.index')}}">@lang('lang.show') @lang('lang.driver')</a></li>
+            <li><a href="{{route('shipment_agent.index')}}">@lang('lang.show') @lang('lang.shipment_agent')</a></li>
+        
         </ul>
     </li>        
     @endif

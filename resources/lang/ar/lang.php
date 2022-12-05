@@ -30,10 +30,10 @@ return [
     'driver'=>'سائقين',
     'custom_procedures'=>'اجراءات الجمارك',
     'procedure_num'=>'رقم البيان',
-    'notes'=>'ملاحظه'
-    
-
-
+    'notes'=>'ملاحظه',
+    'phone'=>'رقم الهاتف',
+    'name'=>'الاسم',
+    'shipment_agent'=>'وكلاء الشحن'
 
 ];
 ?>

@@ -9,6 +9,8 @@ use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\Dashboard\TransactionController;
 use App\Http\Controllers\Dashboard\CustomProceduresController;
+use App\Http\Controllers\Dashboard\DriverController;
+use App\Http\Controllers\Dashboard\ShipmentAgentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +94,28 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('delete/{id}',[CustomProceduresController::class,'delete'])->middleware('permission:delete_custom_procdures')->name('custom_procdure.delete'); 
         Route::get('get_data',[CustomProceduresController::class,'getData'])->middleware('permission:read_custom_procdures')->name('custom_procdure.get_data'); 
     
+    });
+
+    Route::group(['prefix'=>'drivers'],function(){
+        Route::get('index',[DriverController::class,'index'])->middleware('permission:read_drivers')->name('driver.index');
+        Route::get('create',[DriverController::class,'create'])->middleware('permission:add_drivers')->name('driver.create');
+        Route::post('store',[DriverController::class,'store'])->middleware('permission:add_drivers')->name('driver.store');
+        Route::get('edit/{id}',[DriverController::class,'edit'])->middleware('permission:edit_drivers')->name('driver.edit');
+        Route::post('update/{id}',[DriverController::class,'update'])->middleware('permission:edit_drivers')->name('driver.update');
+        Route::get('delete/{id}',[DriverController::class,'delete'])->middleware('permission:delete_drivers')->name('driver.delete'); 
+        Route::get('get_data',[DriverController::class,'getData'])->middleware('permission:read_drivers')->name('driver.get_data'); 
+    });
+
+
+    
+    Route::group(['prefix'=>'shipment_agent'],function(){
+        Route::get('index',[ShipmentAgentController::class,'index'])->middleware('permission:read_shipment_agent')->name('shipment_agent.index');
+        Route::get('create',[ShipmentAgentController::class,'create'])->middleware('permission:add_shipment_agent')->name('shipment_agent.create');
+        Route::post('store',[ShipmentAgentController::class,'store'])->middleware('permission:add_shipment_agent')->name('shipment_agent.store');
+        Route::get('edit/{id}',[ShipmentAgentController::class,'edit'])->middleware('permission:edit_shipment_agent')->name('shipment_agent.edit');
+        Route::post('update/{id}',[ShipmentAgentController::class,'update'])->middleware('permission:edit_shipment_agent')->name('shipment_agent.update');
+        Route::get('delete/{id}',[ShipmentAgentController::class,'delete'])->middleware('permission:delete_shipment_agent')->name('shipment_agent.delete'); 
+        Route::get('get_data',[ShipmentAgentController::class,'getData'])->middleware('permission:read_shipment_agent')->name('shipment_agent.get_data'); 
     });
 
 
