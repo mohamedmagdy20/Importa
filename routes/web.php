@@ -8,6 +8,7 @@ use App\Http\Controllers\Dashboard\CustomPortController;
 use App\Http\Controllers\Dashboard\RoleController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\Dashboard\TransactionController;
+use App\Http\Controllers\Dashboard\CustomProceduresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,18 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('delete/{id}',[TransactionController::class,'delete'])->middleware('permission:delete_transactions')->name('transaction.delete'); 
         Route::get('get_data',[TransactionController::class,'getData'])->middleware('permission:read_transactions')->name('transaction.get_data'); 
         Route::get('show/{id}',[TransactionController::class,'show'])->middleware('permission:read_transactions')->name('transaction.show'); 
+    
+    });
+
+
+    Route::group(['prefix'=>'custom_procdures'],function(){
+        Route::get('index',[CustomProceduresController::class,'index'])->middleware('permission:read_custom_procdures')->name('custom_procdure.index');
+        Route::get('create',[CustomProceduresController::class,'create'])->middleware('permission:add_custom_procdures')->name('custom_procdure.create');
+        Route::post('store',[CustomProceduresController::class,'store'])->middleware('permission:add_custom_procdures')->name('custom_procdure.store');
+        Route::get('edit/{id}',[CustomProceduresController::class,'edit'])->middleware('permission:edit_custom_procdures')->name('custom_procdure.edit');
+        Route::post('update/{id}',[CustomProceduresController::class,'update'])->middleware('permission:edit_custom_procdures')->name('custom_procdure.update');
+        Route::get('delete/{id}',[CustomProceduresController::class,'delete'])->middleware('permission:delete_custom_procdures')->name('custom_procdure.delete'); 
+        Route::get('get_data',[CustomProceduresController::class,'getData'])->middleware('permission:read_custom_procdures')->name('custom_procdure.get_data'); 
     
     });
 

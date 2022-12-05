@@ -26,7 +26,10 @@ return [
     'enter'=>'Enter',
     'number'=>'Number',
     'containers'=>'Containers',
-    'menu'=>'Menu'
-    
+    'menu'=>'Menu',
+    'driver'=>'Drivers',
+    'custom_procedures'=>'Custom Procedures',
+    'procedure_num'=>'Number of statement',
+    'notes'=>'Notes'
 ];
 ?>

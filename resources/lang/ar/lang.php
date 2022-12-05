@@ -26,7 +26,11 @@ return [
     'enter'=>'ادخل',
     'number'=>'الرقم',
     'containers'=>'الحاويات',
-    'menu'=>'القائمه'
+    'menu'=>'القائمه',
+    'driver'=>'سائقين',
+    'custom_procedures'=>'اجراءات الجمارك',
+    'procedure_num'=>'رقم البيان',
+    'notes'=>'ملاحظه'
     
 
 

@@ -9,12 +9,12 @@
 <div class="row">
 <div class="col-12">
 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-    <h4 class="mb-sm-0">لوحه التحكم</h4>
+    <h4 class="mb-sm-0">@lang('lang.dashboard')</h4>
 
     <div class="page-title-right">
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="javascript: void(0);">@lang('lang.dashboard')</a></li>
-            <li class="breadcrumb-item active">الصفحه الاساسيه</li>
+            <li class="breadcrumb-item active">@lang('lang.main_page')</li>
         </ol>
     </div>
 
@@ -29,7 +29,7 @@
     <div class="card-body">
         <div class="d-flex">
             <div class="flex-grow-1">
-                <p class="text-truncate font-size-14 mb-2"> المستوردين</p>
+                <p class="text-truncate font-size-14 mb-2"> @lang('lang.importer')</p>
                 <h4 class="mb-2">{{$importer_count}}</h4>
             </div>
             <div class="avatar-sm">
@@ -48,8 +48,8 @@
     <div class="card-body">
         <div class="d-flex">
             <div class="flex-grow-1">
-                <p class="text-truncate font-size-14 mb-2">المعاملات</p>
-                <h4 class="mb-2">938</h4>
+                <p class="text-truncate font-size-14 mb-2">@lang('lang.transactions')</p>
+                <h4 class="mb-2">{{$transactions}}</h4>
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-success rounded-3">
@@ -67,7 +67,7 @@
     <div class="card-body">
         <div class="d-flex">
             <div class="flex-grow-1">
-                <p class="text-truncate font-size-14 mb-2">عدد الموظفين</p>
+                <p class="text-truncate font-size-14 mb-2">@lang('lang.employees')</p>
                 <h4 class="mb-2">{{$user_count}}</h4>
             </div>
             <div class="avatar-sm">
@@ -84,8 +84,8 @@
     <div class="card-body">
         <div class="d-flex">
             <div class="flex-grow-1">
-                <p class="text-truncate font-size-14 mb-2">عدد الساءقين</p>
-                <h4 class="mb-2">5</h4>
+                <p class="text-truncate font-size-14 mb-2">@lang('lang.driver')</p>
+                <h4 class="mb-2">{{$drivers}}</h4>
             </div>
             <div class="avatar-sm">
                 <span class="avatar-title bg-light text-success rounded-3">

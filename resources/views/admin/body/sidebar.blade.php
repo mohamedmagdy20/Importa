@@ -69,7 +69,7 @@
     <span>@lang('lang.transactions')</span>
 </a>
 <ul class="sub-menu" aria-expanded="false">
-    <li><a href="{{route('transaction.index')}}">@lang('show') @lang('lang.transactions')</a></li>
+    <li><a href="{{route('transaction.index')}}">@lang('lang.show') @lang('lang.transactions')</a></li>
     <li><a href="{{route('transaction.create')}}">@lang('lang.add') @lang('lang.transactions')</a></li>
 </ul>
 </li>
@@ -78,12 +78,11 @@
 <li>
 <a href="javascript: void(0);" class="has-arrow waves-effect">
 <i class="ri-mail-send-line"></i>
-<span>اجراءات الجمارك</span>
+<span>@lang('lang.custom_procedures')</span>
 </a>
 <ul class="sub-menu" aria-expanded="false">
-<li><a href="#">All Portfolio</a></li>
-<li><a href="#">Add Portfolio</a></li>
-
+<li><a href="{{route('custom_procdure.index')}}">@lang('lang.show') @lang('lang.custom_procedures')</a></li>
+<li><a href="{{route('custom_procdure.create')}}">@lang('lang.add') @lang('lang.custom_procedures')</a></li>
 </ul>
 </li>
 
