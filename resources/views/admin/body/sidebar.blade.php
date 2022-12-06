@@ -65,7 +65,7 @@
 
 
 
-
+@if (auth()->user()->hasPermission('read_transactions'))
 <li>
 <a href="javascript: void(0);" class="has-arrow waves-effect">
     <i class="ri-mail-send-line"></i>
@@ -76,8 +76,9 @@
     <li><a href="{{route('transaction.create')}}">@lang('lang.add') @lang('lang.transactions')</a></li>
 </ul>
 </li>
+@endif
 
-
+@if (auth()->user()->hasPermission('read_custom_procdures'))
 <li>
 <a href="javascript: void(0);" class="has-arrow waves-effect">
 <i class="ri-mail-send-line"></i>
@@ -88,30 +89,21 @@
 <li><a href="{{route('custom_procdure.create')}}">@lang('lang.add') @lang('lang.custom_procedures')</a></li>
 </ul>
 </li>
+@endif
 
-{{-- <li>
-<a href="javascript: void(0);" class="has-arrow waves-effect">
-<i class="ri-account-circle-line"></i>
-<span>Blog Category</span>
-</a>
-<ul class="sub-menu" aria-expanded="false">
-<li><a href="#">All Blog Category</a></li>
-<li><a href="#">Add Blog Category</a></li>
-</ul>
-</li> --}}
-
+@if (auth()->user()->hasPermission('read_drivers'))
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-profile-line"></i>
-        <span>سحب البوالص</span>
+        <span>@lang('lang.get') @lang('lang.release_number')</span>
     </a>
     <ul class="sub-menu" aria-expanded="false">
-        <li><a href="#">All Blog</a></li>
-        <li><a href="#">Add Blog</a></li>
+        <li><a href="{{route('get_procedure.index')}}">@lang('lang.get') @lang('lang.release')</a></li>
+        <li><a href="{{route('get_procedure.create')}}">@lang('lang.add') @lang('lang.get') @lang('lang.release')</a></li>
         
     </ul>
 </li>
-
+@endif
 
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">

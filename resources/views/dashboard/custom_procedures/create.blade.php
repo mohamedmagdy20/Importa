@@ -33,14 +33,24 @@
             </div>
 
             <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.custom_port')</label>
+                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.release_number')</label>
                 <div class="col-sm-11">
-                    <select name="transaction_id" id="" class="form-control">
+                    <select name="transaction_id" id="" class="js-example-basic-single form-control">
                         @foreach ($transactions as $transaction )
                             <option value="{{$transaction->id}}">{{$transaction->release_number}}</option>
                         @endforeach
                     </select>
                     @error('transaction_id')
+                    <span class="text-danger"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.date')</label>
+                <div class="col-sm-11">
+                    <input name="date" class="form-control" type="date" placeholder="@lang('lang.date')" required>
+                    @error('date')
                     <span class="text-danger"> {{ $message }} </span>
                     @enderror
                 </div>

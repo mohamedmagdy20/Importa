@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <a href="{{route('driver.create')}}" class="btn btn-info"> @lang('lang.add') @lang('lang.driver') 
+                                    <a href="{{route('get_procedure.create')}}" class="btn btn-info"> @lang('lang.add') @lang('lang.get') 
                                     </a>   
                                 </div>
                             </div>
@@ -30,12 +30,14 @@
                     <h4 class="card-title pb-2">@lang('lang.add') @lang('lang.driver')</h4>
                     
 
-                    <table id="DriverTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="getprocedureTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>@lang('lang.name')</th>
-                            <th>@lang('lang.phone')</th>
-                            <th>@lang('lang.notes')</th>
+                            <th>@lang('lang.procedure_num')</th>
+                            <th>@lang('lang.release_number')</th>
+                            <th>@lang('lang.shipment_agent')</th>
+                            <th>@lang('lang.arrive_date')</th>
+                            <th>@lang('lang.created_by')</th>
                             <th>@lang('lang.actions')</th>
                         </thead>
 
@@ -63,9 +65,9 @@
 <script>
 
     let CustomPortTable = null
-function setDriverDatatable() {
-    var url = "{{ route('driver.get_data') }}";
-    CustomPortTable = $("#DriverTable").DataTable({
+function setProcedureDatatable() {
+    var url = "{{ route('get_procedure.get_data') }}";
+    CustomPortTable = $("#getprocedureTable").DataTable({
         processing: true,
         serverSide: true,
         dom: 'Blfrtip',
@@ -104,13 +106,20 @@ function setDriverDatatable() {
             },
         },
         columns: [{
-                data: 'name'
+                data: 'custom_procedure.procedure_num'
             },
             {
-                data: 'phone_num'
+                data: 'custom_procedure.transaction.release_number'
             },
             {
-                data: 'notes'
+                data: 'shiping_agent.name'
+            },
+            {
+                data: 'arrive_date'
+            },
+            
+            {
+                data:'user.name'
             },
             {
                 data: 'action'
@@ -119,7 +128,7 @@ function setDriverDatatable() {
     });
 }
 $(function() {
-    setDriverDatatable();
+    setProcedureDatatable();
 });
 </script>
 

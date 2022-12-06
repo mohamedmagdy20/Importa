@@ -44,18 +44,18 @@
                         
                     </div> <!-- container-fluid -->
                 </div>
- 
+ <input type="text" id="con_id" value="{{$container}}">
 
 @endsection
 
 @section('script')
 
-
+{{-- 
 <script>
-
+    let id = $('#con_id').val;
     let ImporterTable = null
 function setTransactionsDatatable() {
-    var url = "{{ route('transaction.show',) }}";
+    var url = 'dashboard/trasnsactions/container_date/'+`${id}`;
     TransactionsTable = $("#TransactionsTable").DataTable({
         processing: true,
         serverSide: true,
@@ -95,31 +95,20 @@ function setTransactionsDatatable() {
             },
         },
         columns: [{
-                data: 'release_number'
+                data: 'container_num'
             },
             {
-                data: 'importer.name_en'
-            },
-            {
-                data: 'custom_port.name_en'
-               
+                data: 'transaction.release_number'
             },
             {
                 data: 'received_date'
-            },
-            {
-                data: 'user.name'
-            },
-            {
-                data: 'action'
-            },
-          
+            },          
         ],
     });
 }
 $(function() {
     setTransactionsDatatable();
 });
-</script>
+</script> --}}
 
 @endsection

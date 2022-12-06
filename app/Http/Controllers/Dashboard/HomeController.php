@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Importer;
 use App\Models\Transaction;
-
+use App\Models\Drivers;
 class HomeController extends Controller
 {
     //
@@ -21,10 +21,8 @@ class HomeController extends Controller
         $user_count = User::count();
         $importer_count = Importer::count();
         $transactions = Transaction::count();
-        $drivers = User::whereHas('roles',function($q)
-        {
-            $q->where('name','truck');
-        })->count();
+        $drivers = Drivers::count();
+
         return view('index',compact('user_count','importer_count','transactions','drivers'));
     }
 

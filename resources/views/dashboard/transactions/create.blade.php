@@ -35,7 +35,7 @@
             <div class="row mb-3">
                 <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.importer')</label>
                 <div class="col-sm-11">
-                    <select name="importer_id" id=""   data-toggle="select2" class="select2-dropdown form-control">
+                    <select name="importer_id"  class="js-example-basic-single form-control">
                         @foreach ($importers as $importer )
                             <option value="{{$importer->id}}">{{$importer->name_en}}</option>
                         @endforeach
@@ -50,7 +50,7 @@
             <div class="row mb-3">
                 <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.custom_port')</label>
                 <div class="col-sm-11">
-                    <select name="custom_port_id" id="" class="form-control">
+                    <select name="custom_port_id" id="" class="js-example-basic-single form-control">
                         @foreach ($custom_ports as $port )
                             <option value="{{$port->id}}">{{$port->name_en}}</option>
                         @endforeach

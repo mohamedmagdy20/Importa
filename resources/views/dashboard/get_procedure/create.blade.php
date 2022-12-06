@@ -8,7 +8,7 @@
    <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">@lang('lang.add') @lang('lang.driver')</h4>
+            <h4 class="mb-sm-0">@lang('lang.get') @lang('lang.release')</h4>
         </div>
     </div>
 </div>             
@@ -17,37 +17,20 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="card-title">@lang('lang.add') @lang('lang.driver')</h4>
+            <h4 class="card-title">@lang('lang.add') @lang('lang.get') @lang('lang.release') </h4>
             
-            <form method="post" action="{{ route('driver.store') }}"  class="needs-validation"  novalidate >
+            <form method="post" action="{{ route('get_procedure.store') }}"  class="needs-validation"  novalidate >
                 @csrf
 
             <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.name')</label>
+                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.importer')</label>
                 <div class="col-sm-11">
-                    <input name="name" class="form-control" type="text" id="example-text-input" placeholder="@lang('lang.enter') @lang('lang.name')" required>
-                    @error('name')
-                    <span class="text-danger"> {{ $message }} </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.phone')</label>
-                <div class="col-sm-11">
-                    <input name="phone_num" class="form-control" type="text" id="example-text-input" placeholder="@lang('lang.enter') @lang('lang.phone')" required>
-                    @error('phone_num')
-                    <span class="text-danger"> {{ $message }} </span>
-                    @enderror
-                </div>
-            </div>
-
-
-            <div class="row mb-3">
-                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.notes')</label>
-                <div class="col-sm-11">
-                    <textarea name="notes" class="form-control" id="" cols="30" rows="10"></textarea>
-                    @error('notes')
+                    <select name="custom_procedure_id"  class="js-example-basic-single form-control">
+                        @foreach ($CustomProcedure as $Custom )
+                            <option value="{{$Custom->id}}">{{$Custom->procedure_num}}</option>
+                        @endforeach
+                    </select>
+                    @error('custom_procedure_id')
                     <span class="text-danger"> {{ $message }} </span>
                     @enderror
                 </div>
@@ -55,15 +38,32 @@
 
 
             
-          
-            
-        
+            <div class="row mb-3">
+                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.shipment_agent')</label>
+                <div class="col-sm-11">
+                    <select name="shipment_agent_id"  class="js-example-basic-single form-control">
+                        @foreach ($shippingAgent as $agent )
+                            <option value="{{$agent->id}}">{{$agent->name}}</option>
+                        @endforeach
+                    </select>
+                    @error('shipment_agent_id')
+                    <span class="text-danger"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
 
-       
-
+            <div class="row mb-3">
+                <label for="arrive_date" class="col-sm-1 col-form-label">@lang('lang.arrive_date')</label>
+                <div class="col-sm-11">
+                    <input name="arrive_date" class="form-control" type="date" id="arrive_date" placeholder="@lang('lang.enter') @lang('lang.date')" required>
+                    @error('shipment_agent_id')
+                    <span class="text-danger"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
             <!-- end row -->
 
-<input type="submit" class="btn btn-info waves-effect waves-light validate" value="اضافه">
+<input type="submit" class="btn btn-info waves-effect waves-light validate" value="@lang('lang.add')">
             </form>
              
            
@@ -80,3 +80,4 @@
 
 
 @endsection 
+

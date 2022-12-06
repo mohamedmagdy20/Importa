@@ -33,7 +33,10 @@ return [
     'notes'=>'Notes',
     'phone'=>' Phone',
     'name'=>'Name',
-    'shipment_agent'=>'Shipment Agent'
-    
+    'shipment_agent'=>'Shipment Agent',
+    'get'=>'Get',
+    'release'=>'Policies',
+    'arrive_date'=>'Arrivel Data',
+
 ];
 ?>

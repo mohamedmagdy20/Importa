@@ -48,6 +48,16 @@
             </div>
 
             <div class="row mb-3">
+                <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.date')</label>
+                <div class="col-sm-11">
+                    <input name="date" class="form-control" type="date" value="{{$custom_procedures->date}}" required>
+                    @error('date')
+                    <span class="text-danger"> {{ $message }} </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row mb-3">
                 <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.notes')</label>
                 <div class="col-sm-11">
                     <textarea name="notes" class="form-control" id="" cols="30" rows="10">{{$custom_procedures->notes}}</textarea>

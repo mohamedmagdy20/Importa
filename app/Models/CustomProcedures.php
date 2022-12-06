@@ -15,6 +15,7 @@ class CustomProcedures extends Model
         'transaction_id',
         'user_id',
         'updated_at',
+        'date',
         'notes'
     ];
 

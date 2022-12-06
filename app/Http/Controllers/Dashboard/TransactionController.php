@@ -34,12 +34,19 @@ class TransactionController extends Controller
         return view('dashboard.transactions.create',compact('custom_ports','importers'));
     }
 
-    public function show($id)
+    public function getContainerData($id)
     {
         $containers = Containers::query()->with('transaction')->where('transaction_id',$id);
         $data = DataTables()->eloquent($transaction)
+        ->addColumn('action', function ($transaction) {
+            return view('dashboard.transactions.action', ['type' => 'action', 'transaction' => $transaction]);
+        })
         ->toJson();
         return $data;
+    }
+    public function show($id)
+    {
+        return view('dashboard.transactions.show',$id);
     }
     public function store(Request $request)
     {

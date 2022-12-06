@@ -33,7 +33,9 @@ return [
     'notes'=>'ملاحظه',
     'phone'=>'رقم الهاتف',
     'name'=>'الاسم',
-    'shipment_agent'=>'وكلاء الشحن'
-
+    'shipment_agent'=>'وكلاء الشحن',
+    'get'=>'سحب',
+    'release'=>'البوالص',
+    'arrive_date'=>'تاريخ الوصول',
 ];
 ?>

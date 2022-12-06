@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\TransactionController;
 use App\Http\Controllers\Dashboard\CustomProceduresController;
 use App\Http\Controllers\Dashboard\DriverController;
 use App\Http\Controllers\Dashboard\ShipmentAgentController;
+use App\Http\Controllers\Dashboard\GetProcedureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,7 +82,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('delete/{id}',[TransactionController::class,'delete'])->middleware('permission:delete_transactions')->name('transaction.delete'); 
         Route::get('get_data',[TransactionController::class,'getData'])->middleware('permission:read_transactions')->name('transaction.get_data'); 
         Route::get('show/{id}',[TransactionController::class,'show'])->middleware('permission:read_transactions')->name('transaction.show'); 
-    
+        Route::get('container_date/{id}',[TransactionController::class,'getContainerData'])->middleware('permission:read_transactions')->name('transaction.container.data');
     });
 
 
@@ -116,6 +117,16 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::post('update/{id}',[ShipmentAgentController::class,'update'])->middleware('permission:edit_shipment_agent')->name('shipment_agent.update');
         Route::get('delete/{id}',[ShipmentAgentController::class,'delete'])->middleware('permission:delete_shipment_agent')->name('shipment_agent.delete'); 
         Route::get('get_data',[ShipmentAgentController::class,'getData'])->middleware('permission:read_shipment_agent')->name('shipment_agent.get_data'); 
+    });
+
+    Route::group(['prefix'=>'get_procedure'],function(){
+        Route::get('index',[GetProcedureController::class,'index'])->middleware('permission:read_get_procedure')->name('get_procedure.index');
+        Route::get('create',[GetProcedureController::class,'create'])->middleware('permission:add_get_procedure')->name('get_procedure.create');
+        Route::post('store',[GetProcedureController::class,'store'])->middleware('permission:add_get_procedure')->name('get_procedure.store');
+        Route::get('edit/{id}',[GetProcedureController::class,'edit'])->middleware('permission:edit_get_procedure')->name('get_procedure.edit');
+        Route::post('update/{id}',[GetProcedureController::class,'update'])->middleware('permission:edit_get_procedure')->name('get_procedure.update');
+        Route::get('delete/{id}',[GetProcedureController::class,'delete'])->middleware('permission:delete_get_procedure')->name('get_procedure.delete'); 
+        Route::get('get_data',[GetProcedureController::class,'getData'])->middleware('permission:read_get_procedure')->name('get_procedure.get_data'); 
     });
 
 
