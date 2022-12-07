@@ -32,11 +32,11 @@ class UserController extends Controller
     {
         $request->validate([
             'name'=>'required|min:3|max:90',
-            'email'=>'required',
+            'email'=>'required|unique:users,email',
             'password'=>'required|confirmed|min:6',
-            'roles'=>'required'
+            'phone'=>'required|numeric|unique:users,phone',
+            'roles'=>'required',
         ]);
-
         // $data = $request->all();
         $password = Hash::make($request->password);
         if(Hash::check($request->password_confirmation, $password))
@@ -44,7 +44,8 @@ class UserController extends Controller
             $data = [
                 'name'=>$request->name,
                 'email'=>$request->email,
-                'password'=>Hash::make($request->password)
+                'password'=>Hash::make($request->password),
+                'phone'=>$request->phone
             ];
             $user = User::create($data);
             $user->syncRoles($request->roles);
@@ -87,18 +88,29 @@ class UserController extends Controller
     {
         $request->validate([
             'name'=>'required|min:3|max:90',
-            'email'=>'required',
+            'email'=>'required|email',
+            'password'=>'required|confirmed|min:6',
+            'phone'=>'required|numeric',
             'roles'=>'required'
         ]);
-
-        $data = User::find($id);
-        $data->update($request->all());
-        $data->syncRoles($request->roles);
-        $notification = array(
-            'message' => 'تم تحديث المستخدم', 
-            'alert-type' => 'info'
-        );
-        return redirect()->route('user.index')->with($notification);
+        $password = Hash::make($request->password);
+        if(Hash::check($request->password_confirmation, $password))
+        {
+            $data = [
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'password'=>Hash::make($request->password),
+                'phone'=>$request->phone
+            ];
+            $user = User::find($id);
+            $user->update($data);
+            $user->syncRoles($request->roles);
+            $notification = array(
+                'message' => 'تم تحديث المستخدم', 
+                'alert-type' => 'info'
+            );
+           return redirect()->route('user.index')->with($notification);
+        }
     }
 
     public function delete($id)
@@ -122,5 +134,9 @@ class UserController extends Controller
     }
 
 
+    public function profile()
+    {
+        return view('dashboard.users.profile');
+    }
 
 }

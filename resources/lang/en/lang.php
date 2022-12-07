@@ -37,6 +37,15 @@ return [
     'get'=>'Get',
     'release'=>'Policies',
     'arrive_date'=>'Arrivel Data',
-
+    'accounting'=>'Accounting',
+    'invoice'=>'Invoice',
+    'language'=>'Language',
+    'arabic'=>'Arabic',
+    'english'=>'English',
+    'email'=>'Email',
+    'profile'=>'Profile',
+    'password'=>'Password',
+    'conf_pass'=>'Confirm Password',
+    'info'=>'Information',
 ];
 ?>

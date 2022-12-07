@@ -35,7 +35,7 @@ class CustomProceduresController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'procedure_num'=>'required|numeric',
+            'procedure_num'=>'required|numeric|unique:custom_procedures,procedure_num',
             'transaction_id'=>'required',
             ]);
 

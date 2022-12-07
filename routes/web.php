@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\CustomProceduresController;
 use App\Http\Controllers\Dashboard\DriverController;
 use App\Http\Controllers\Dashboard\ShipmentAgentController;
 use App\Http\Controllers\Dashboard\GetProcedureController;
+use App\Http\Controllers\Dashboard\AccountingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('edit/{id}',[UserController::class,'edit'])->middleware('permission:edit_users')->name('user.edit');
         Route::post('update/{id}',[UserController::class,'update'])->middleware('permission:edit_users')->name('user.update');
         Route::get('delete/{id}',[UserController::class,'delete'])->middleware('permission:delete_users')->name('user.delete'); 
+        Route::get('profile',[UserController::class,'profile'])->middleware('permission:read_users')->name('user.profile');
     });
 
     
@@ -129,6 +131,16 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('get_data',[GetProcedureController::class,'getData'])->middleware('permission:read_get_procedure')->name('get_procedure.get_data'); 
     });
 
+    Route::group(['prefix'=>'accounting'],function(){
+        Route::get('index',[AccountingController::class,'index'])->middleware('permission:read_accounting')->name('accounting.index');
+        Route::get('create',[AccountingController::class,'create'])->middleware('permission:add_accounting')->name('accounting.create');
+        Route::post('store',[AccountingController::class,'store'])->middleware('permission:add_accounting')->name('accounting.store');
+        Route::get('edit/{id}',[AccountingController::class,'edit'])->middleware('permission:edit_accounting')->name('accounting.edit');
+        Route::post('update/{id}',[AccountingController::class,'update'])->middleware('permission:edit_accounting')->name('accounting.update');
+        Route::get('delete/{id}',[AccountingController::class,'delete'])->middleware('permission:delete_accounting')->name('accounting.delete'); 
+        Route::get('get_data',[AccountingController::class,'getData'])->middleware('permission:read_accounting')->name('accounting.get_data'); 
+    });
+    
 
 });
 

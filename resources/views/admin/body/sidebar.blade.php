@@ -108,12 +108,11 @@
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-profile-line"></i>
-        <span>المحاسبه</span>
+        <span>@lang('lang.accounting')</span>
     </a>
     <ul class="sub-menu" aria-expanded="false">
-        <li><a href="#">Footer Setup</a></li>
-         
-        
+        <li><a href="{{route('accounting.index')}}">@lang('lang.show') @lang('lang.accounting')</a></li>
+        <li><a href="#">@lang('lang.add') @lang('lang.invoice')</a></li>
     </ul>
 </li>
 
