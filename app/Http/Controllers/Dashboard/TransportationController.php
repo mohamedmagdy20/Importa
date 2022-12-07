@@ -36,11 +36,14 @@ class TransportationController extends Controller
     public function store(Request $request)
     {
         try{
-            // $request->validate([
-            //     'container_id'=>'required',
-            //     'driver_id'=>'required',
-              
-            // ]);
+            $request->validate([
+                'container_id'=>'required',
+                'deiver_id'=>'required',
+                'container_out_date'=>'required',
+                'arrive_date'=>'required',
+                'leave_date'=>'required',
+                'container_arrive_date'=>'required',
+            ]);
             
             $data = $request->all();
             $user = auth()->user()->id;
@@ -93,7 +96,7 @@ class TransportationController extends Controller
 
     public function delete($id)
     {
-        $data =  Transaction::find($id);
+        $data =  Transportation::find($id);
         if($data){
             $notification = array(
                 'message' => 'تم حدف بنجاح', 
