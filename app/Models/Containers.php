@@ -13,7 +13,8 @@ class Containers extends Model
     protected $fillable = [
         'container_num',
         'transaction_id',
-        'received_date'
+        'received_date',
+        'width'
     ];
 
 

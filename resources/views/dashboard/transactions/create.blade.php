@@ -73,6 +73,10 @@
                
             </div>
 
+            <div class="row mb-3" id="width_inputs">
+               
+            </div>
+
 
             <div class="row mb-3">
                 <label for="container_number" class="col-sm-1 col-form-label">@lang('lang.date')</label>
@@ -97,7 +101,6 @@
 </div>
 </div>
 
-
 @endsection 
 
 @section('script')
@@ -107,6 +110,7 @@
         let inputval = $('#container_number').val();
       
         html = ''
+        h =''
         for(let i = 0; i<inputval ; i++)
         {
             html += `
@@ -114,9 +118,21 @@
                 <input name="container[]" class="form-control" type="number" id="container_number" placeholder="@lang('lang.enter') @lang('lang.number')" required>
             </div>
             `
+            h +=`
+            <div class="col-sm-3 mb-2">
+                <select name="width[]" id="width" class="js-example-basic-single form-control">
+                    <option value="40">40</option>
+                    <option value="20">20</option>
+                    <option value="package">طرود</option>
+               
+                    </select>
+                </div>
+           
+            `
         }
 
         $('#container_inputs').html(html);
+        $('#width_inputs').html(h);
 
     }
    </script>

@@ -17,7 +17,7 @@ class Transaction extends Model
         'custom_port_id',
         'importer_id',
         'received_date',
-        'user_id'
+        'user_id',
     ];
 
     public function custom_port()
@@ -39,4 +39,8 @@ class Transaction extends Model
     {
         return $this->hasMany(CustomProcedures::class,'transaction_id');
     }
+    
+
+
 }
+

@@ -56,6 +56,7 @@ class TransactionController extends Controller
             'custom_port_id'=>'required',
             'importer_id'=>'required',
             'received_date'=>'required|date',
+            'width'=>'required|array',
             'container'=>'required|array'
         ]);
 
@@ -70,6 +71,7 @@ class TransactionController extends Controller
         {
             Containers::create([
                 'container_num'=>$container,
+                'width'=>$request->width[$key],
                 'transaction_id'=>$transaction->id,
                 'received_date'=>$request->received_date
             ]);
@@ -98,6 +100,7 @@ class TransactionController extends Controller
             'custom_port_id'=>'required',
             'importer_id'=>'required',
             'received_date'=>'required|date',
+            'width'=>'required|array',
             'container'=>'required|array'
         ]);
 
