@@ -35,10 +35,10 @@
             <div class="row mb-3">
                 <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.importer')</label>
                 <div class="col-sm-11">
-                    <select name="importer_id" id=""   data-toggle="select2" class="select2-dropdown form-control">
+                    <select name="importer_id" id=""   data-toggle="select2" class="js-example-basic-single form-control">
                         <option value="{{$transaction->importer_id}}" selected>{{$transaction->importer->name_en}}</option>
                         @foreach ($importers as $importer )
-                            <option value="{{$importer->id}}">{{$importer->name_en}}</option>
+                            <option value="{{$importer->id}}">{{$importer->name_ar}}</option>
                         @endforeach
                     </select>
                     @error('importer_id')
@@ -51,8 +51,8 @@
             <div class="row mb-3">
                 <label for="example-text-input" class="col-sm-1 col-form-label">@lang('lang.custom_port')</label>
                 <div class="col-sm-11">
-                    <select name="custom_port_id" id="" class="form-control">
-                        <option value="{{$transaction->custom_port_id}}" selected>{{$transaction->customPort->name_en}}</option>
+                    <select name="custom_port_id" id="" class="js-example-basic-single form-control">
+                        <option value="{{$transaction->custom_port_id}}" selected>{{$transaction->custom_port->name_en}}</option>
 
                         @foreach ($custom_ports as $port )
                             <option value="{{$port->id}}">{{$port->name_en}}</option>
@@ -70,6 +70,23 @@
                 @foreach ($containers as $container )
                 <div class="col-sm-3 mb-2">
                      <input name="container[]" class="form-control" type="number" id="container_number" value="{{$container->container_num}}" required>
+                </div>
+                     @endforeach               
+            </div>
+
+
+            
+            <div class="row mb-3" id="container_inputs">
+                <label for="container_number" class="col-sm-1 col-form-label">@lang('lang.container_num')</label>
+                @foreach ($containers as $container )
+                <div class="col-sm-3 mb-2">
+                    <select name="width[]" id="width" class=" form-control">
+                        <option selected value="{{$container->width}}">{{$container->width}}</option>
+                        <option value="40">40</option>
+                        <option value="20">20</option>
+                        <option value="package">طرود</option>    
+                    </select>
+                  
                 </div>
                      @endforeach               
             </div>

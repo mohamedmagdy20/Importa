@@ -108,7 +108,7 @@ class TransactionController extends Controller
         $user = auth()->user()->id;
         
         $transaction = Transaction::find($id);
-        
+
         $transaction->update(array_merge($data,[$user]));
 
         $containers = $request->container;
@@ -119,7 +119,8 @@ class TransactionController extends Controller
         foreach($containerModel as $key => $container)
         {
             $container->update([
-                'container_num'=>$request->container[$key]
+                'container_num'=>$request->container[$key],
+                'width'=>$request->width[$key]
             ]);
         }
         $notification = array(
