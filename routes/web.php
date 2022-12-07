@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\DriverController;
 use App\Http\Controllers\Dashboard\ShipmentAgentController;
 use App\Http\Controllers\Dashboard\GetProcedureController;
 use App\Http\Controllers\Dashboard\AccountingController;
+use App\Http\Controllers\Dashboard\TransportationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,6 +140,17 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::post('update/{id}',[AccountingController::class,'update'])->middleware('permission:edit_accounting')->name('accounting.update');
         Route::get('delete/{id}',[AccountingController::class,'delete'])->middleware('permission:delete_accounting')->name('accounting.delete'); 
         Route::get('get_data',[AccountingController::class,'getData'])->middleware('permission:read_accounting')->name('accounting.get_data'); 
+    });
+
+
+    Route::group(['prefix'=>'transportion'],function(){
+        Route::get('index',[TransportationController::class,'index'])->middleware('permission:read_transport')->name('transport.index');
+        Route::get('create',[TransportationController::class,'create'])->middleware('permission:add_transport')->name('transport.create');
+        Route::post('store',[TransportationController::class,'store'])->middleware('permission:add_transport')->name('transport.store');
+        Route::get('edit/{id}',[TransportationController::class,'edit'])->middleware('permission:edit_transport')->name('transport.edit');
+        Route::post('update/{id}',[TransportationController::class,'update'])->middleware('permission:edit_transport')->name('transport.update');
+        Route::get('delete/{id}',[TransportationController::class,'delete'])->middleware('permission:delete_transport')->name('transport.delete'); 
+        Route::get('get_data',[TransportationController::class,'getData'])->middleware('permission:read_transport')->name('transport.get_data'); 
     });
     
 

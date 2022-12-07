@@ -28,7 +28,7 @@ class CustomProceduresController extends Controller
 
     public function create()
     {
-        $transactions = Transaction::all();
+        $transactions = Transaction::doesnthave('custom_procedures')->get();
         return view('dashboard.custom_procedures.create',compact('transactions'));
     }
 
@@ -52,7 +52,7 @@ class CustomProceduresController extends Controller
     public function edit($id)
     {
         $custom_procedures = CustomProcedures::find($id);
-        $transactions = Transaction::all();
+        $transactions = Transaction::doesnthave('custom_procedures')->get();
         if($custom_procedures)
         {
             return view('dashboard.custom_procedures.edit',compact('custom_procedures','transactions'));
@@ -89,12 +89,14 @@ class CustomProceduresController extends Controller
     public function delete($id)
     {
         $user =  CustomProcedures::find($id);
+        $transaction = Transaction::find($user->transaction_id);
         if($user){
             $notification = array(
                 'message' => 'تم حدف بنجاح', 
                 'alert-type' => 'success'
             );
             $user->delete();
+            $transaction->delete();
             return redirect()->back()->with($notification);
         }
         else{

@@ -37,6 +37,6 @@ class Transaction extends Model
 
     public function custom_procedures()
     {
-        return $this->hasOne(CustomProcedures::class);
+        return $this->hasMany(CustomProcedures::class,'transaction_id');
     }
 }

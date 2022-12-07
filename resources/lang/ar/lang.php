@@ -47,5 +47,10 @@ return [
     'password'=>'كلمه المرور',
     'conf_pass'=>'تاكيد كلمه المرور',
     'info'=>'بيانات',
+    'transpot'=>'النقليات',
+    'container_date_out'=>'تاريخ خروج الحاويه',
+    'receive_home_date'=>'تاريخ استلام المستودع',
+    'leave_home_date'=>'تاريخ مغادره المستودع',
+    'container_arrive_date'=>'تاريخ عوده الحاويه للجمارك'
 ];
 ?>

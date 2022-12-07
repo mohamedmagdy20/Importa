@@ -119,10 +119,11 @@
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-profile-line"></i>
-        <span>النقليات</span>
+        <span>@lang('lang.transpot')</span>
     </a>
     <ul class="sub-menu" aria-expanded="false">
-        <li><a href="#">Footer Setup</a></li>
+        <li><a href="{{route('transport.index')}}">@lang('lang.show') @lang('lang.transpot')</a></li>
+        <li><a href="{{route('transport.create')}}">@lang('lang.add') @lang('lang.transpot')</a></li>
          
         
     </ul>

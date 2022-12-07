@@ -47,5 +47,10 @@ return [
     'password'=>'Password',
     'conf_pass'=>'Confirm Password',
     'info'=>'Information',
+    'transpot'=>'Transportation',
+    'container_date_out'=>'Date of Container Out',
+    'receive_home_date'=>'Date of WareHouse Receive',
+    'leave_home_date'=>'Date of WareHouse Leave',
+    'container_arrive_date'=>'Date Of Container Arrive to Port'
 ];
 ?>

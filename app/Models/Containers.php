@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Transaction;
+use App\Models\Transportation;
 class Containers extends Model
 {
     use HasFactory;
@@ -24,5 +25,11 @@ class Containers extends Model
     public function transaction()
     {
         return $this->belongsTo(Transaction::class, 'transaction_id');
+    }
+
+    public function transportation()
+    {
+        return $this->hasMany(Transportation::class, 'container_id');
+        
     }
 }

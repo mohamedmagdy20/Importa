@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdToAccountingTable extends Migration
+class AddUserIdTrasportaionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class AddUserIdToAccountingTable extends Migration
      */
     public function up()
     {
-        Schema::table('accountings', function (Blueprint $table) {
+        //
+        Schema::table('transportations', function (Blueprint $table) {
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); 
         });
@@ -26,8 +27,6 @@ class AddUserIdToAccountingTable extends Migration
      */
     public function down()
     {
-        Schema::table('accounting', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
