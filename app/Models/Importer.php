@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use App\Models\User;
 class Importer extends Model
 {
-    use HasFactory;
+    use Notifiable , HasFactory;
 
     protected $table = 'importers';
     protected $fillable =[
@@ -30,5 +31,10 @@ class Importer extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function routeNotificationForWhatsApp()
+    {
+      return $this->phone_num1;
     }
 }

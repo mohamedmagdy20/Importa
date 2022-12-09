@@ -77,6 +77,7 @@ class TransactionController extends Controller
             ]);
         }
 
+
         $notification = array(
             'message' => 'تم اضافه معامله', 
             'alert-type' => 'success'

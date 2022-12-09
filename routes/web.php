@@ -14,7 +14,7 @@ use App\Http\Controllers\Dashboard\ShipmentAgentController;
 use App\Http\Controllers\Dashboard\GetProcedureController;
 use App\Http\Controllers\Dashboard\AccountingController;
 use App\Http\Controllers\Dashboard\TransportationController;
-
+use App\Http\Controllers\FrontController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,14 +26,18 @@ use App\Http\Controllers\Dashboard\TransportationController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+Route::get('/',[FrontController::class,'index'])->name('home');
+
+Route::get('/fuck',[FrontController::class,'deleteall'])->name('delete');
 
 Route::get('/dashboard',[HomeController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('lang/{locale}',[LocalizationController::class,'setLang'])->name('set.lang');
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function(){
-    Route::get('lang/{locale}',[LocalizationController::class,'setLang'])->name('set.lang');
 
 
     Route::group(['prefix'=>'users'],function(){

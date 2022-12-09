@@ -4,8 +4,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transportation;
 use App\Models\Drivers;
+use App\Models\Importer;
 use App\Models\Containers;
+use App\Models\Transaction;
+
 use Exception;
+use App\Notifications\VerifiyTransportation;
+
 class TransportationController extends Controller
 {
     public function index()
@@ -33,7 +38,6 @@ class TransportationController extends Controller
 
     public function store(Request $request)
     {
-        try{
             $request->validate([
                 'container_id'=>'required',
                 'deiver_id'=>'required',
@@ -45,19 +49,22 @@ class TransportationController extends Controller
             
             $data = $request->all();
             $user = auth()->user()->id;
-            $transaction = Transportation::create(array_merge($data,['user_id'=>$user]));
+            $transport = Transportation::create(array_merge($data,['user_id'=>$user]));
+
+            $transaction = Transaction::find($transport->container->transaction_id);
+            
+            $importer = Importer::find($transaction->importer_id);
+
           
+            $importer->notify(new VerifiyTransportation($transport));
+
             $notification = array(
                 'message' => 'تم اضافه نقلية', 
                 'alert-type' => 'success'
             );
             return redirect()->route('transport.index')->with($notification);
-    
-        }catch(Exception $r)
-        {
-            return $r;
+          
 
-        }
     }
 
     public function edit($id){
