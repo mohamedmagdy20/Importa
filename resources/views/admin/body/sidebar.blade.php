@@ -22,7 +22,7 @@
     @if (auth()->user()->hasRole('super_admin'))
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
-            <i class="ri-mail-send-line"></i>
+            <i class="fa fa-users"></i>
             <span>@lang('lang.employees')</span>
         </a>
         <ul class="sub-menu" aria-expanded="false">
@@ -39,7 +39,7 @@
     @if (auth()->user()->hasPermission('read_importers'))
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
-            <i class="ri-mail-send-line"></i>
+            <i class="fa fa-users"></i>
             <span>@lang('lang.importer')</span>
         </a>
         <ul class="sub-menu" aria-expanded="false">
@@ -52,7 +52,7 @@
     @if (auth()->user()->hasPermission('read_customports'))
     <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
-            <i class="ri-mail-send-line"></i>
+            <i class="fa fa-anchor"></i>
             <span>@lang('lang.custom_port')</span>
         </a>
         <ul class="sub-menu" aria-expanded="false">
@@ -68,7 +68,7 @@
 @if (auth()->user()->hasPermission('read_transactions'))
 <li>
 <a href="javascript: void(0);" class="has-arrow waves-effect">
-    <i class="ri-mail-send-line"></i>
+    <i class="fa fa-ship"></i>
     <span>@lang('lang.transactions')</span>
 </a>
 <ul class="sub-menu" aria-expanded="false">
@@ -81,7 +81,7 @@
 @if (auth()->user()->hasPermission('read_custom_procdures'))
 <li>
 <a href="javascript: void(0);" class="has-arrow waves-effect">
-<i class="ri-mail-send-line"></i>
+    <i class="ri-profile-line"></i>
 <span>@lang('lang.custom_procedures')</span>
 </a>
 <ul class="sub-menu" aria-expanded="false">

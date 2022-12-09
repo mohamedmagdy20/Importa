@@ -19,15 +19,18 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title pb-2">@lang('lang.show') @lang('lang.transactions')</h4>
+                    <h4 class="card-title pb-2">@lang('lang.show') @lang('lang.containers') @lang('lang.transactions') @lang('lang.number') : {{$tranaction_num->release_number}}</h4>
                     
 
                     <table id="TransactionsTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
                             <th>@lang('lang.container_num')</th>
+                            <th>@lang('lang.kind')</th>
                             <th>@lang('lang.transactions')</th>
                             <th>@lang('lang.date')</th>     
+                            <th>@lang('lang.actions')</th>     
+
                         </thead>
 
 
@@ -44,19 +47,17 @@
                         
                     </div> <!-- container-fluid -->
                 </div>
- <input type="text" id="con_id" value="{{$container}}">
 
 @endsection
 
 @section('script')
 
-{{-- 
+
 <script>
-    let id = $('#con_id').val;
     let ImporterTable = null
 function setTransactionsDatatable() {
-    var url = 'dashboard/trasnsactions/container_date/'+`${id}`;
-    TransactionsTable = $("#TransactionsTable").DataTable({
+    var url = "{{route('transaction.container.data',$transaction)}}";
+    ImporterTable = $("#TransactionsTable").DataTable({
         processing: true,
         serverSide: true,
         dom: 'Blfrtip',
@@ -98,17 +99,23 @@ function setTransactionsDatatable() {
                 data: 'container_num'
             },
             {
+                data:'width'
+            },
+            {
                 data: 'transaction.release_number'
             },
             {
                 data: 'received_date'
-            },          
+            }, 
+            {
+                data:'action'
+            }         
         ],
     });
 }
 $(function() {
     setTransactionsDatatable();
 });
-</script> --}}
+</script>
 
 @endsection

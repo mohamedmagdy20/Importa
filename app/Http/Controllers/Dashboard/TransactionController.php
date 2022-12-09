@@ -36,17 +36,38 @@ class TransactionController extends Controller
 
     public function getContainerData($id)
     {
-        $containers = Containers::query()->with('transaction')->where('transaction_id',$id);
+        $transaction = Containers::query()->with('transaction')->where('transaction_id',$id);
         $data = DataTables()->eloquent($transaction)
         ->addColumn('action', function ($transaction) {
-            return view('dashboard.transactions.action', ['type' => 'action', 'transaction' => $transaction]);
+            return view('dashboard.transactions.action_container', ['type' => 'action', 'transaction' => $transaction]);
         })
         ->toJson();
         return $data;
     }
     public function show($id)
     {
-        return view('dashboard.transactions.show',$id);
+        $transaction = $id;
+        $tranaction_num = Transaction::find($id);
+        return view('dashboard.transactions.show',compact('transaction','tranaction_num'));
+    }
+    public function deleteContainer($id)
+    {
+        $data =  Containers::find($id);
+        if($data){
+            $notification = array(
+                'message' => 'تم حدف بنجاح', 
+                'alert-type' => 'success'
+            );
+            $data->delete();
+            return redirect()->back()->with($notification);
+        }
+        else{
+            $notification = array(
+                'message' => 'حدثت مشكله برجاء االمحاوله مره اخري', 
+                'alert-type' => 'error'
+            );
+            return redirect()->back()->with($notification);            
+        }
     }
     public function store(Request $request)
     {

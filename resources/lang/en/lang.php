@@ -78,6 +78,7 @@ return [
     'Comment'=> 'Comment',
     'Msg'=> 'Message',
     'Submit'=> 'Submit',
-    'CopyRights'=> '© Copyright 2022 All rights reserved to RNL'
+    'CopyRights'=> '© Copyright 2022 All rights reserved to RNL',
+    'kind'=>'Kind'
 ];
 ?>

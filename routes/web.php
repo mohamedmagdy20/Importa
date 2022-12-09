@@ -90,6 +90,8 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('get_data',[TransactionController::class,'getData'])->middleware('permission:read_transactions')->name('transaction.get_data'); 
         Route::get('show/{id}',[TransactionController::class,'show'])->middleware('permission:read_transactions')->name('transaction.show'); 
         Route::get('container_date/{id}',[TransactionController::class,'getContainerData'])->middleware('permission:read_transactions')->name('transaction.container.data');
+        Route::get('delete/container/{id}',[TransactionController::class,'deleteContainer'])->middleware('permission:read_transactions')->name('transaction.container.delete');
+    
     });
 
 
