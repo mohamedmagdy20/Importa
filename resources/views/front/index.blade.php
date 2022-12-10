@@ -36,8 +36,17 @@
               <li class="scroll-to-section"><a href="#services">@lang('lang.Services')</a></li>
               <li class="scroll-to-section"><a href="#contact">@lang('lang.ContactUs')</a></li>
               <li class="scroll-to-section">
-                <div class="main-blue-button" id="lang-button">
-                    <a href="{{route('set.lang','ar')}}">Arabic</a>
+                <div class="dropdown">
+                  <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="outline:none" title="Language">
+                    <span class="material-symbols-outlined" style="color:white">
+                      @lang('lang.language')
+                    </span>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{route('set.lang','en')}}">@lang('lang.english')</a>
+                    <a class="dropdown-item" href="{{route('set.lang','ar')}}">@lang('lang.arabic')</a>
+                  </div>
                 </div>
                
             </ul>
@@ -97,9 +106,7 @@
                   <div class="icon"></div>
                   <h4>@lang('lang.shop1')</h4>
                   <div class="line-dec"></div>
-                  <p>يقدم شحن خدمة تأجير الشاحنات بجميع أحجامها وأنواعها مع نخبة من السائقين المدربين والمحترفين.
-                    بالإضافة إلى ذلك وفرنا لك في شحن تأمينًا على شحناتك وبضائعك، فشحن يهتم ببضاعتك حتى وصولها لوجهتها
-                    وتسليمها.</p>
+                  <p>@lang('lang.fe1')</p>
                 </div>
               </div>
               <div class="col-lg-3">
@@ -110,8 +117,7 @@
                   <div class="icon"></div>
                   <h4>@lang('lang.shop2')</h4>
                   <div class="line-dec"></div>
-                  <p>لديك شركة نقليات أو تملك شاحنة تريلا, سقس, لوري, دينا او حتى بيك اب "ونيت"؟ شحن يوصلك بعملاء ويوفر
-                    لك الطلبات من مكانك، ويسلمك مستحقاتك فورًا بلا تأجيل ولا تأخير.</p>
+                  <p>@lang('lang.fe2')</p>
                 </div>
               </div>
               <div class="col-lg-3">
@@ -122,8 +128,7 @@
                   <div class="icon"></div>
                   <h4>@lang('lang.shop3')</h4>
                   <div class="line-dec"></div>
-                  <p>شحن يهتم بعملائه الأفراد ويوفر لهم عدة خيارات من مركبات النقل حسب احتياجاتهم. مع شحن تستطيع أن تطلب
-                    وتأمن وتتبع طلبك بكل يسر وسهولة.</p>
+                  <p>@lang('lang.fe3')</p>
                 </div>
               </div>
               <div class="col-lg-3">
@@ -135,7 +140,7 @@
                   <div class="icon"></div>
                   <h4>@lang('lang.speed_com')</h4>
                   <div class="line-dec"></div>
-                  <p>ذلك عن طريق ارسال رساله الى العميل لحظه وصل المنتج الخاص به الى المخازن وهذا يضمن سرعه الاستلام</p>
+                  <p>@lang('lang.fe4')</p>
                 </div>
               </div>
             </div>
@@ -237,7 +242,7 @@
           style="direction:rtl ">
           <div class="section-heading">
             <h6>@lang('lang.who')</h6>
-            <h2>أكبر <em>شركه</em> شحن &amp; وشركه توصيل <span>@lang('lang.')</span></h2>
+            <h2>أكبر <em>شركه</em> شحن &amp; وشركه توصيل <span></span></h2>
           </div>
           <div class="row">
             <div class="col-lg-4 col-sm-4">
@@ -260,7 +265,7 @@
             </div>
           </div>
           <p><span class="c_name">RNL</span> @lang('lang.who_p')</p>
-          <div class="main-green-button"><a href="#"> إكتشف الشركه</a></div>
+          <div class="main-green-button"><a href="#">@lang('lang.find_out')</a></div>
         </div>
       </div>
     </div>
@@ -272,7 +277,7 @@
         <div class="col-lg-6 offset-lg-3">
           <div class="section-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <h6>@lang('lang.services')</h6>
-            <h2>اكتشف ما نقوم به &amp; <span>عرض</span> الى <em>عملائنا</em></h2>
+            <h2>@lang('lang.find_out')</h2>
           </div>
         </div>
       </div>
@@ -290,7 +295,7 @@
               </div>
               <div class="col-lg-8">
                 <div class="right-content">
-                  <h4>إداره منظمه</h4>
+                  <h4>@lang('lang.manage_comp')</h4>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum doloribus praesentium, architecto
                     asperiores eius dolor!
                   </p>
@@ -538,43 +543,43 @@
             <div class="row">
               <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                  <h6>اتصل بنا</h6>
-                  <h2>املأ النموذج أدناه <span>للتواصل</span> <em>معنا</em></h2>
+                  <h6>@lang('lang.ContactUs')</h6>
+                  <h2>@lang('lang.contact_form')</h2>
                 </div>
               </div>
               <div class="col-lg-9">
                 <div class="row">
                   <div class="col-lg-6">
                     <fieldset>
-                      <input type="name" name="name" id="name" placeholder="الاسم" autocomplete="on" required>
+                      <input type="name" name="name" id="name" placeholder="@lang('lang.name')" autocomplete="on" required>
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input type="surname" name="surname" id="surname" placeholder="اسم العائله" autocomplete="on"
+                      <input type="surname" name="surname" id="surname" placeholder="@lang('lang.f_name')" autocomplete="on"
                         required>
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="الايميل"
+                      <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="@lang('lang.email')"
                         required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input type="subject" name="subject" id="subject" placeholder="التعليق" autocomplete="on">
+                      <input type="subject" name="subject" id="subject" placeholder="@lang('lang.Comment')" autocomplete="on">
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <textarea name="message" type="text" class="form-control" id="message" placeholder="الرساله"
+                      <textarea name="message" type="text" class="form-control" id="message" placeholder="@lang('lang.Msg')"
                         required=""></textarea>
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="main-button "> ارسل التعليق</button>
+                      <button type="submit" id="form-submit" class="main-button ">@lang('lang.Submit')</button>
                     </fieldset>
                   </div>
                 </div>
@@ -589,7 +594,7 @@
                           mail
                         </span>
                       </div>
-                      <a href="#">info@company.com</a>
+                      <a href="relwork2@gmail.com">relwork2@gmail.com</a>
                     </li>
                     <li>
                       <div class="icon">
@@ -598,7 +603,7 @@
                           call
                         </span>
                       </div>
-                      <a href="#">+001-002-0034</a>
+                      <a href="#">+966 55 267 8080</a>
                     </li>
                     <li>
                       <div class="icon">
@@ -607,7 +612,7 @@
                           location_on
                         </span>
                       </div>
-                      <a href="#">26th Street, Digital Villa</a>
+                      <a href="#">Sauid Arabia Riyadh</a>
                     </li>
                   </ul>
                 </div>

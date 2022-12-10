@@ -15,6 +15,8 @@ use App\Http\Controllers\Dashboard\GetProcedureController;
 use App\Http\Controllers\Dashboard\AccountingController;
 use App\Http\Controllers\Dashboard\TransportationController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\Dashboard\HistoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -157,6 +159,13 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::post('update/{id}',[TransportationController::class,'update'])->middleware('permission:edit_transport')->name('transport.update');
         Route::get('delete/{id}',[TransportationController::class,'delete'])->middleware('permission:delete_transport')->name('transport.delete'); 
         Route::get('get_data',[TransportationController::class,'getData'])->middleware('permission:read_transport')->name('transport.get_data'); 
+    });
+    
+
+    
+    Route::group(['prefix'=>'history'],function(){
+        Route::get('index',[HistoryController::class,'index'])->middleware('permission:read_transport')->name('history.index');
+        // Route::get('get_data',[TransportationController::class,'getData'])->middleware('permission:read_transport')->name('transport.get_data'); 
     });
     
 

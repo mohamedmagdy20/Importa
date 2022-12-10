@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\CustomPort;
 use App\Models\Importer;
 use App\Models\CustomProcedures;
+use App\Models\Containers;
 class Transaction extends Model
 {
     use HasFactory;
@@ -38,6 +39,11 @@ class Transaction extends Model
     public function custom_procedures()
     {
         return $this->hasMany(CustomProcedures::class,'transaction_id');
+    }
+
+    public function container()
+    {
+        return $this->hasMany(Containers::class,'transaction_id');
     }
     
 

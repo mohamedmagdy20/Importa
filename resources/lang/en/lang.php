@@ -59,6 +59,11 @@ return [
     'Welcome_to'=> 'Welcome to Rehlat Enjaz Logistics Company',
     'Get_quote'=> 'Get your Quote',
     'shop1'=> 'Shipping to partners',
+    'manage_comp'=>'Company Mangment',
+    'fe1'=> 'Shipping offers truck rental services of all sizes and types with a group of trained and professional drivers. In addition to that, we have provided you with insurance for your shipments and goods, as the shipment takes care of your goods until they reach their destination and delivery.',
+    'fe2'=> 'Do you have a transportation company or own a Trila, Sqs, Lorry, Dyna or even a Pickup truck? Shipping connects you with customers, provides you with orders from your place, and delivers your dues immediately without delay or delay',
+    'fe3'=> 'Shipping cares about its individual customers and provides them with several options of transport vehicles according to their needs. With Shipping, you can order, secure, and track your order easily.',
+    'fe4'=> 'This is done by sending a message to the customer the moment his product arrived in the warehouse, and this ensures the speed of receipt',
     'shop2'=> 'Corporate shipping',
     'shop3'=> 'Shipping to individuals',
     'speed_com'=> 'The speed of communication with customers',
@@ -79,6 +84,11 @@ return [
     'Msg'=> 'Message',
     'Submit'=> 'Submit',
     'CopyRights'=> '© Copyright 2022 All rights reserved to RNL',
+    'large'=> 'Largest',
+    'company'=> 'Company',
+    'deliver'=> 'freight forwarding',
+    'c_derliver'=> 'delivery company',
+    'good'=> 'cargo',
     'kind'=>'Kind'
 ];
 ?>

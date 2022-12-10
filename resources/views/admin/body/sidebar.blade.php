@@ -105,6 +105,7 @@
 </li>
 @endif
 
+@if (auth()->user()->hasPermission('read_accounting'))
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-profile-line"></i>
@@ -115,7 +116,8 @@
         <li><a href="#">@lang('lang.add') @lang('lang.invoice')</a></li>
     </ul>
 </li>
-
+@endif
+@if (auth()->user()->hasPermission('read_transport'))
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-profile-line"></i>
@@ -128,6 +130,7 @@
         
     </ul>
 </li>
+@endif
 
                
 <li>
