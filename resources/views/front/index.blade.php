@@ -36,18 +36,17 @@
               <li class="scroll-to-section"><a href="#services">@lang('lang.Services')</a></li>
               <li class="scroll-to-section"><a href="#contact">@lang('lang.ContactUs')</a></li>
               <li class="scroll-to-section">
-                <div class="dropdown">
-                  <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" style="outline:none" title="Language">
-                    <span class="material-symbols-outlined" style="color:white">
-                      @lang('lang.language')
-                    </span>
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{route('set.lang','en')}}">@lang('lang.english')</a>
-                    <a class="dropdown-item" href="{{route('set.lang','ar')}}">@lang('lang.arabic')</a>
-                  </div>
-                </div>
+                <select class="form-select" style="background-color: transparent; outline: none; border:none">
+                  <option value="eng" style=" border-radius: 50px; background-color: #C96222; color:white">
+                    
+                      <a style="text-decoration: none" href="{{route('set.lang','en')}}"> @lang('lang.english')</a>
+                  </option>
+                  <option value="Ara" style=" border-radius: 50px; background-color: #C96222; color:white">
+                    <a  style="text-decoration: none" href="{{route('set.lang','ar')}}"> @lang('lang.arabic')</a>
+
+                  </option>
+                </select>
+               </li>
                
             </ul>
             <a class='menu-trigger'>

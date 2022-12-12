@@ -31,10 +31,9 @@
                     <h4 class="card-title">@lang('lang.employees')</h4>
                     
 
-                    <table id="datatable" class="table table-striped  dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="UserTable" class="table table-striped  dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th></th>
                             <th>@lang('lang.name')</th>
                             <th>@lang('lang.email')</th>
                             <th>@lang('lang.phone')</th>
@@ -46,7 +45,7 @@
 
 
                         <tbody>
-                        	@foreach($users as $key => $user)
+                        	{{-- @foreach($users as $key => $user)
                         <tr>
                             <td> {{ $key}} </td>
                             <td> {{ $user->name }} </td>
@@ -65,7 +64,7 @@
                             </td>
                            
                         </tr>
-                        @endforeach
+                        @endforeach --}}
                         
                         </tbody>
                     </table>
@@ -80,5 +79,77 @@
                     </div> <!-- container-fluid -->
                 </div>
  
+
+@endsection
+
+
+@section('script')
+<script>
+
+    let ImporterTable = null
+function setTransactionsDatatable() {
+    var url = "{{ route('user.get_data') }}";
+    TransactionsTable = $("#UserTable").DataTable({
+        processing: true,
+        serverSide: true,
+        dom: 'Blfrtip',
+        lengthMenu: [0, 5, 10, 20, 50, 100, 200, 500],
+        pageLength: 9,
+        buttons: [
+           {
+                        extend: 'copy',
+                        className: 'btn btn-light'
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn btn-light'
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn btn-light'
+                    },
+                    {
+                        extend: 'csv',
+                        className: 'btn btn-light'
+                    },
+        ],
+        sorting: [0, "DESC"],
+        ordering: false,
+        ajax: url,
+        drawCallback: function(settings) {
+     
+            $('.dataTables_paginate > .pagination').addClass('pagination-rounded');
+                    
+        },
+        language: {
+            paginate: {
+                "previous": "<i class='mdi mdi-chevron-left'>",
+                "next": "<i class='mdi mdi-chevron-right'>"
+            },
+        },
+        columns: [{
+                data: 'name'
+            },
+            {
+                data: 'email'
+            },
+            {
+                data: 'phone'
+               
+            },
+            {
+                data: 'roles'
+            },
+            {
+                data: 'action'
+            },
+          
+        ],
+    });
+}
+$(function() {
+    setTransactionsDatatable();
+});
+</script>
 
 @endsection

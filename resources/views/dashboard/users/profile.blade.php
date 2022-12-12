@@ -20,7 +20,7 @@
                 <h4 class="card-title">@lang('lang.phone') : {{ auth()->user()->phone }} </h4>
                 <hr>
                 @if (auth()->user()->hasRole('super_admin'))
-                    <a href="{{route('user.profile',auth()->user()->id)}}" class="btn btn-info btn-rounded waves-effect waves-light" >@lang('lang.edit') @lang('lang.profile')</a>
+                    <a href="{{route('user.edit',auth()->user()->id)}}" class="btn btn-info btn-rounded waves-effect waves-light" >@lang('lang.edit') @lang('lang.profile')</a>
                 @endif
             </div>
         </div>

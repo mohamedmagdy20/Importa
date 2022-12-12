@@ -50,6 +50,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::post('update/{id}',[UserController::class,'update'])->middleware('permission:edit_users')->name('user.update');
         Route::get('delete/{id}',[UserController::class,'delete'])->middleware('permission:delete_users')->name('user.delete'); 
         Route::get('profile',[UserController::class,'profile'])->middleware('permission:read_users')->name('user.profile');
+        Route::get('get_data',[UserController::class,'getData'])->middleware('permission:read_importers')->name('user.get_data'); 
     });
 
     

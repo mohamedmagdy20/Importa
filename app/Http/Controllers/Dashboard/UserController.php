@@ -18,10 +18,23 @@ class UserController extends Controller
 
     public function index()
     {
-        $users =User::all();
-        return view('dashboard.users.index',compact('users'));
+        return view('dashboard.users.index');
     }
     
+    public function getData()
+    {
+        $user = User::query();
+        $data = DataTables()->eloquent($user)
+        ->addColumn('action', function ($user) {
+            return view('dashboard.users.action', ['type' => 'action', 'user' => $user]);
+        })
+        ->addColumn('roles', function ($user) {
+            return view('dashboard.users.action', ['type' => 'roles', 'user' => $user]);
+        })
+      
+        ->toJson();
+        return $data;
+    }
     public function create()
     {
         $roles = Role::all();
