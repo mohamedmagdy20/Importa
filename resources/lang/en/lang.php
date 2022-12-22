@@ -89,6 +89,7 @@ return [
     'deliver'=> 'freight forwarding',
     'c_derliver'=> 'delivery company',
     'good'=> 'cargo',
-    'kind'=>'Kind'
+    'kind'=>'Kind',
+    'num_container'=>'Container Number',
 ];
 ?>

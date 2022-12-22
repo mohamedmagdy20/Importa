@@ -29,6 +29,9 @@
 
                     <h4 class="card-title pb-2">@lang('lang.add') @lang('lang.invoice')</h4>
                     
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-dark" id="download">PDF</button>
+                    </div>
 
                     <table id="AccountingTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
@@ -80,10 +83,10 @@ function AccountingDatatable() {
                         extend: 'print',
                         className: 'btn btn-light'
                     },
-                    {
-                        extend: 'pdf',
-                        className: 'btn btn-light'
-                    },
+                    // {
+                    //     extend: 'pdf',
+                    //     className: 'btn btn-light'
+                    // },
                     {
                         extend: 'csv',
                         className: 'btn btn-light'
@@ -129,6 +132,23 @@ function AccountingDatatable() {
 $(function() {
     AccountingDatatable();
 });
+
+window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("AccountingTable");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin:0.1,
+                filename: 'accountings.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'Landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
 </script>
 
 @endsection

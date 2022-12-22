@@ -1,10 +1,8 @@
 @extends('admin_master')
 @section('admin')
 
-
  <div class="page-content">
                     <div class="container-fluid">
-
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
@@ -16,7 +14,7 @@
 
                         <!-- end page title -->
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                     <a href="{{route('user.create')}}" class="btn btn-info">@lang('lang.add') @lang('lang.employees')
                                     </a>   
@@ -29,8 +27,10 @@
                 <div class="card-body">
 
                     <h4 class="card-title">@lang('lang.employees')</h4>
-                    
-
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-dark" id="download">PDF</button>
+                    </div>
+               
                     <table id="UserTable" class="table table-striped  dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
@@ -105,11 +105,10 @@ function setTransactionsDatatable() {
                         className: 'btn btn-light'
                     },
                     {
-                        extend: 'pdf',
-                        className: 'btn btn-light'
-                    },
-                    {
                         extend: 'csv',
+                        charset: 'UTF-16LE',
+                        fieldSeparator: '\t',
+                        bom: true ,
                         className: 'btn btn-light'
                     },
         ],
@@ -150,6 +149,24 @@ function setTransactionsDatatable() {
 $(function() {
     setTransactionsDatatable();
 });
+
+window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("UserTable");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: ,
+                filename: 'employees.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
+
 </script>
 
 @endsection

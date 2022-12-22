@@ -89,7 +89,8 @@ return [
     'c_derliver'=> 'وشركه توصيل',
     'manage_comp'=>'اداره المنظمه',
     'good'=> 'البضائع',
-    'kind'=>'نوع'
+    'kind'=>'نوع',
+    'num_container'=>'رقم الحاويه',
 
 
 

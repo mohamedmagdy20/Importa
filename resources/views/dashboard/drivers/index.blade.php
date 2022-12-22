@@ -29,7 +29,9 @@
 
                     <h4 class="card-title pb-2">@lang('lang.add') @lang('lang.driver')</h4>
                     
-
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-dark" id="download">PDF</button>
+                    </div>
                     <table id="DriverTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
@@ -80,10 +82,10 @@ function setDriverDatatable() {
                         extend: 'print',
                         className: 'btn btn-light'
                     },
-                    {
-                        extend: 'pdf',
-                        className: 'btn btn-light'
-                    },
+                    // {
+                    //     extend: 'pdf',
+                    //     className: 'btn btn-light'
+                    // },
                     {
                         extend: 'csv',
                         className: 'btn btn-light'
@@ -121,6 +123,24 @@ function setDriverDatatable() {
 $(function() {
     setDriverDatatable();
 });
+
+window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("DriverTable");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin:0.5,
+                filename: 'drivers.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
+
 </script>
 
 @endsection

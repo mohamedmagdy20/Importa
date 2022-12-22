@@ -17,15 +17,18 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" id="container">
 
                     <h4 class="card-title pb-2">@lang('lang.show') @lang('lang.containers') @lang('lang.transactions') @lang('lang.number') : {{$tranaction_num->release_number}}</h4>
                     
-
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <button type="button" class="btn btn-dark" id="download">PDF</button>
+                    </div>
                     <table id="TransactionsTable" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th>@lang('lang.container_num')</th>
+                            <th>#</th>
+                            <th>@lang('lang.number')</th>
                             <th>@lang('lang.kind')</th>
                             <th>@lang('lang.transactions')</th>
                             <th>@lang('lang.date')</th>     
@@ -95,7 +98,11 @@ function setTransactionsDatatable() {
                 "next": "<i class='mdi mdi-chevron-right'>"
             },
         },
-        columns: [{
+        columns: [
+            {
+                data:'DT_RowIndex'
+            },
+            {
                 data: 'container_num'
             },
             {
@@ -116,6 +123,26 @@ function setTransactionsDatatable() {
 $(function() {
     setTransactionsDatatable();
 });
+
+
+
+window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("container");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin:0.1,
+                filename: 'transaction.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'Landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}
+
 </script>
 
 @endsection

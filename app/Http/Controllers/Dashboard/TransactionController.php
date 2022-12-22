@@ -41,11 +41,13 @@ class TransactionController extends Controller
         ->addColumn('action', function ($transaction) {
             return view('dashboard.transactions.action_container', ['type' => 'action', 'transaction' => $transaction]);
         })
+        ->addIndexColumn()
         ->toJson();
         return $data;
     }
     public function show($id)
     {
+       
         $transaction = $id;
         $tranaction_num = Transaction::find($id);
         return view('dashboard.transactions.show',compact('transaction','tranaction_num'));
