@@ -7,7 +7,7 @@ use App\Models\Drivers;
 use App\Models\Importer;
 use App\Models\Containers;
 use App\Models\Transaction;
-
+use App\Http\Controllers\Dashboard\MessageController;
 use Exception;
 use App\Notifications\VerifiyTransportation;
 
@@ -54,9 +54,10 @@ class TransportationController extends Controller
             $transaction = Transaction::find($transport->container->transaction_id);
             
             $importer = Importer::find($transaction->importer_id);
+            $message = "تم تخزين الحاويه رقم {$transport->container->container_num} برجاء ارسال رساله تاكيد مع تحيات شركه Rel";
+            $sendMessage = new MessageController();
+            $sendMessage->sendingWhatsAppMessage($importer->phone_num1 ,$message);
 
-          
-            $importer->notify(new VerifiyTransportation($transport));
 
             $notification = array(
                 'message' => 'تم اضافه نقلية', 

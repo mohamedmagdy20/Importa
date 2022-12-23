@@ -16,6 +16,7 @@ use App\Http\Controllers\Dashboard\AccountingController;
 use App\Http\Controllers\Dashboard\TransportationController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\Dashboard\HistoryController;
+use App\Http\Controllers\Dashboard\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -166,6 +167,14 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
     
     Route::group(['prefix'=>'history'],function(){
         Route::get('index',[HistoryController::class,'index'])->middleware('permission:read_transport')->name('history.index');
+        // Route::get('get_data',[TransportationController::class,'getData'])->middleware('permission:read_transport')->name('transport.get_data'); 
+    });
+
+    
+    Route::group(['prefix'=>'message'],function(){
+        Route::get('index',[MessageController::class,'index'])->name('message');
+        Route::get('read',[MessageController::class,'read'])->name('read');
+       
         // Route::get('get_data',[TransportationController::class,'getData'])->middleware('permission:read_transport')->name('transport.get_data'); 
     });
     
