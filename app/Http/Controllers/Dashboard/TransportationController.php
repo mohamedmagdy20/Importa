@@ -55,6 +55,8 @@ class TransportationController extends Controller
             
             $importer = Importer::find($transaction->importer_id);
             $message = "تم تخزين الحاويه رقم {$transport->container->container_num} برجاء ارسال رساله تاكيد مع تحيات شركه Rel";
+           
+           
             $sendMessage = new MessageController();
             $sendMessage->sendingWhatsAppMessage($importer->phone_num1 ,$message);
 

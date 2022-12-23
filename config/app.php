@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'message_key'=>env('WHATSAPP_TOKEN'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

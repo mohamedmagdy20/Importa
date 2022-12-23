@@ -11,7 +11,7 @@ class MessageController extends Controller
     public function sendingWhatsAppMessage($phone,$message)
     {
         $responce = Http::withHeaders([
-            'Authorization'=> 'Bearer EAANJRZC64uDsBAMWgLAknixwOU1KGnF57kCOjaWnfFi1I93TQbqshuAf73F56ZBwuREzRxrQ96OUnKkXi2SC9urYNby4m5RcjgCdMYDrN77icMSRP6CMZAZBDNLBljC5aN1T0TG3uWeVZAPFtg1oEC8uivxlgYrxUY4aRm1yHO054S204ey0PsrVaLDROjZBd1hsnaU0aFXgZDZD',
+            'Authorization'=> 'Bearer '.config('app.message_key'),
             'Content-Type'=> 'application/json' 
         ])
         ->post('https://graph.facebook.com/v15.0/111476201818585/messages',

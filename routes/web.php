@@ -172,7 +172,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
 
     
     Route::group(['prefix'=>'message'],function(){
-        Route::get('index',[MessageController::class,'index'])->name('message');
+        Route::get('index',[MessageController::class,'sendingWhatsAppMessage'])->name('message');
         Route::get('read',[MessageController::class,'read'])->name('read');
        
         // Route::get('get_data',[TransportationController::class,'getData'])->middleware('permission:read_transport')->name('transport.get_data'); 
