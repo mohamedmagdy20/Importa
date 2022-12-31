@@ -100,6 +100,10 @@ class TransactionController extends Controller
             ]);
         }
 
+        
+        $sendMessage = new MessageController();
+        $sendMessage->startConversation($transaction->importer->phone_num1);
+
 
         $notification = array(
             'message' => 'تم اضافه معامله', 
